@@ -1,0 +1,31 @@
+/* BZ AVATAR STUDIO — estilos aislados para no alterar el resto de Basket Zone */
+.bz-avatar-studio{display:grid;grid-template-columns:minmax(260px,.9fr) minmax(0,1.1fr);gap:28px;align-items:start;margin:24px 0 40px}
+.bz-avatar-stage{position:sticky;top:100px;background:#18181C;border:1px solid #3a3a40;padding:18px;overflow:hidden}
+.bz-stage-top{display:flex;justify-content:space-between;gap:12px;color:#929298;font-size:.72rem;font-weight:800;letter-spacing:.14em}
+.bz-avatar-art{max-width:420px;margin:22px auto 12px;filter:drop-shadow(0 18px 22px rgba(0,0,0,.25))}
+.bz-avatar-art svg{display:block;width:100%;height:auto}
+.bz-avatar-caption{text-align:center;color:#F47721;font:800 1rem "Big Shoulders Display",Impact,sans-serif;letter-spacing:.18em;margin:12px 0 2px}
+.bz-editor-heading h2{margin-top:8px}
+.bz-control-group{padding:16px 0;border-top:1px solid #3a3a40}
+.bz-control-group h3{font-size:1.35rem;margin:0 0 12px}
+.bz-swatches,.bz-choices{display:flex;flex-wrap:wrap;gap:9px}
+.bz-swatch{width:34px;height:34px;border-radius:50%;background:var(--swatch);border:3px solid #18181C;outline:1px solid #626269;cursor:pointer;transition:transform .18s,outline-color .18s}
+.bz-swatch:hover{transform:scale(1.1)}
+.bz-swatch.is-selected{outline:3px solid #F47721;outline-offset:2px}
+.bz-choice{background:#18181C;color:#F4F4F2;border:1px solid #3a3a40;padding:9px 13px;font:600 .88rem "DM Sans",Arial,sans-serif;cursor:pointer;transition:border-color .18s,background .18s}
+.bz-choice:hover,.bz-choice.is-selected{border-color:#F47721;background:rgba(244,119,33,.12)}
+.bz-avatar-actions,.bz-avatar-export{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.bz-avatar-actions .boton{margin:0}
+.bz-export{background:transparent;color:#F4F4F2;border:1px solid #3a3a40;padding:10px 14px;font:700 .85rem "DM Sans",Arial,sans-serif;cursor:pointer}
+.bz-export:hover{border-color:#F47721;color:#F47721}
+.bz-avatar-status{min-height:2.8em;color:#929298;font-size:.88rem;border-left:3px solid #F47721;padding:8px 12px;background:#18181C}
+@media(max-width:800px){.bz-avatar-studio{grid-template-columns:1fr;gap:18px}.bz-avatar-stage{position:relative;top:auto}.bz-avatar-art{max-width:330px}}
+@media(prefers-reduced-motion:reduce){.bz-swatch,.bz-choice{transition:none}}
+
+/* Avatar pequeño y redondo (perfil, resultados del reto y Comunidad) */
+.avatar-mini{display:inline-block;border-radius:50%;overflow:hidden;border:3px solid var(--naranja,#F47721);background:#18181C;line-height:0;vertical-align:middle}
+.avatar-mini svg{display:block;width:100%;height:100%}
+.avatar .avatar-mini{border:0}
+.perfil-avatar{margin:16px 0}
+.avatar-vacio{display:inline-block;color:var(--gris,#929298);border:2px dashed var(--gris,#929298);padding:10px 16px}
+.resultado-jugador{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:1.1rem}

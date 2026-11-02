@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Basket Zone · Tu mundo, tu cancha</title>
+<meta name="description" content="Basket Zone: aprende baloncesto, conoce las competiciones, repasa su historia y pon a prueba tus conocimientos con retos de preguntas.">
+<meta name="theme-color" content="#09090B">
+<meta property="og:title" content="Basket Zone · Tu mundo, tu cancha">
+<meta property="og:description" content="Lecciones, historia, glosario y retos de baloncesto.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- DISEÑO: todo el aspecto de la web está en styles.css. El ?v=4 evita que el navegador use una versión vieja guardada. -->
+<link rel="stylesheet" href="styles.css?v=9">
+<link rel="stylesheet" href="avatar.css?v=3">
+<noscript><style>.cargador{display:none}</style></noscript>
+</head>
+<body>
+
+<!-- ============ PANTALLA DE CARGA ============
+     Se oculta sola cuando la página termina de cargar (función ocultarCargador en script.js).
+     Su diseño y animación están en styles.css, sección 15. -->
+<div class="cargador" id="cargador" role="status" aria-label="Cargando Basket Zone">
+  <svg viewBox="0 0 200 200" aria-hidden="true">
+    <g class="cancha-trazo-grupo">
+      <circle pathLength="1" class="cancha-trazo" cx="100" cy="100" r="90"/>
+      <path pathLength="1" class="cancha-trazo" d="M10 100H190"/>
+      <path pathLength="1" class="cancha-trazo" d="M100 10V190"/>
+    </g>
+    <g transform="translate(100 100)"><g class="bola">
+      <circle r="36" fill="#F47721"/>
+      <g fill="none" stroke="#09090B" stroke-width="3"><path d="M-36 0H36M0-36V36"/><path d="M-25-25C-10-10-10 10-25 25M25-25C10-10 10 10 25 25"/></g>
+    </g></g>
+  </svg>
+  <p class="cargador-texto">BASKET ZONE</p>
+</div>
+
+<!-- ============ CABECERA Y MENÚ ============
+     Para añadir una página al menú: agrega un enlace <a href="#nombre"> y una <section id="nombre" class="pagina"> más abajo. -->
+<header>
+  <div class="bar">
+    <a class="logo" href="#inicio" aria-label="Basket Zone, inicio">
+      <img src="assets/img/logo.svg" alt="" width="38" height="38">
+      BASKET ZONE
+    </a>
+    <button class="mb" id="mb" aria-expanded="false" aria-controls="nav">Menú</button>
+    <nav aria-label="Principal" id="nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#partidos">Partidos</a>
+      <a href="#jugadores">Jugadores</a>
+      <a href="#aprende">Aprende</a>
+      <a href="#retos">Retos</a>
+      <a href="#historia">Historia</a>
+      <a href="#comunidad">Comunidad</a>
+      <a href="#perfil">Mi perfil</a>
+    </nav>
+    <a class="btn" href="#retos">Descubrir retos</a>
+  </div>
+</header>
+
+<!-- ============ CONTENIDO: solo se muestra la página activa (lo controla script.js) ============ -->
+<main id="app" tabindex="-1">
+<noscript><p style="padding:24px">Basket Zone necesita JavaScript activado para funcionar.</p></noscript>
+
+<!-- ============ PÁGINA: INICIO ============ -->
+<section id="inicio" class="pagina">
+    <div class="portada">
+    <!-- Líneas de cancha que se dibujan al entrar (animación "dibujar" en styles.css) -->
+    <svg class="lineas-fondo" viewBox="0 0 800 500" aria-hidden="true">
+      <rect pathLength="1" x="20" y="20" width="760" height="460"/>
+      <path pathLength="1" d="M400 20V480"/>
+      <circle pathLength="1" cx="400" cy="250" r="90"/>
+      <path pathLength="1" d="M20 150h140v200H20"/>
+      <path pathLength="1" d="M780 150H640v200h140"/>
+      <path pathLength="1" d="M20 60h60a190 190 0 0 1 0 380H20"/>
+      <path pathLength="1" d="M780 60h-60a190 190 0 0 0 0 380h60"/>
+    </svg>
+    <div class="contenedor portada-grid">
+      <div>
+        <p class="etiqueta">BZ / 001</p>
+        <h1>More than<br>a game.</h1>
+        <p class="eslogan">Tu mundo, tu cancha</p>
+        <p class="gris">Sigue los partidos, descubre jugadores, aprende los fundamentos y demuestra cuánto sabes del juego.</p>
+        <a class="boton" href="#partidos">Explorar partidos</a>
+        <a class="boton vacio" href="#retos">Aceptar reto</a>
+      </div>
+      <!-- Escena: imagen de cancha + pelota animada. Cambia las imágenes en assets/img/ o el tamaño en styles.css (.escena) -->
+      <div class="escena" data-parallax="0.06">
+        <img class="imagen-portada" src="assets/img/cancha.svg" alt="Ilustración de una cancha de baloncesto" width="420" height="320">
+        <span class="pelota-flotante"><img class="pelota-giro" src="assets/img/pelota.svg" alt="" width="140" height="140"></span>
+      </div>
+    </div></div>
+    <div class="contenedor">
+      <h2>FIBA frente a NBA</h2>
+      <p class="gris">Reglas oficiales (no son resultados de partidos).</p>
+      <div class="cuadricula compacta">
+        <div class="caja"><p class="numero"><span class="contador" data-valor="4">4</span> x <span class="contador" data-valor="10">10</span></p><p>Periodos y minutos en FIBA</p></div>
+        <div class="caja"><p class="numero"><span class="contador" data-valor="4">4</span> x <span class="contador" data-valor="12">12</span></p><p>Periodos y minutos en la NBA</p></div>
+        <div class="caja"><p class="numero"><span class="contador" data-valor="6.75" data-decimales="2" data-coma="1">6,75</span> m</p><p>Línea de tres en FIBA</p></div>
+        <div class="caja"><p class="numero"><span class="contador" data-valor="7.24" data-decimales="2" data-coma="1">7,24</span> m</p><p>Línea de tres en la NBA</p></div>
+      </div>
+      <h2>Qué puedes hacer aquí</h2>
+      <div class="cuadricula">
+        <a class="caja" href="#aprende"><h3>Aprende</h3><p class="gris">Lecciones por nivel con consejos y errores comunes.</p></a>
+        <a class="caja" href="#retos"><h3>Retos</h3><p class="gris">Preguntas de baloncesto con puntuación.</p></a>
+        <a class="caja" href="#historia"><h3>Historia</h3><p class="gris">Línea de tiempo y glosario del juego.</p></a>
+        <a class="caja" href="#partidos"><h3>Competiciones</h3><p class="gris">Guía de las ligas y torneos más importantes.</p></a>
+      </div>
+    </div></section>
+
+<!-- ============ PÁGINA: PARTIDOS Y COMPETICIONES (datos de demostración) ============ -->
+<section id="partidos" class="pagina">
+    <div class="contenedor">
+      <p class="etiqueta">BZ / 002</p><h1>Partidos</h1>
+      <div class="aviso"><span class="pill">Datos de demostración</span> Los equipos y marcadores de esta página son ficticios (la «Liga Demo» de Basket Zone) y sirven para mostrar el diseño. No corresponden a clubes ni partidos reales. Para resultados oficiales visita
+        <a class="enlace" href="https://www.nba.com" target="_blank" rel="noopener">NBA</a>,
+        <a class="enlace" href="https://www.fiba.basketball" target="_blank" rel="noopener">FIBA</a> o
+        <a class="enlace" href="https://www.euroleaguebasketball.net" target="_blank" rel="noopener">EuroLeague</a>.</div>
+
+      <!-- Estados de partido (el punto verde pulsa solo cuando un partido esté realmente en directo) -->
+      <p>
+        <span class="estado"><span class="punto live"></span>En directo (solo con datos reales)</span>
+        <span class="estado"><span class="punto proximo"></span>Próximo</span>
+        <span class="estado"><span class="punto fin"></span>Finalizado</span>
+      </p>
+      <h2>Resultados recientes</h2>
+      <div id="demo-resultados"></div>
+
+      <h2>Tabla de posiciones</h2>
+      <div id="demo-tabla"></div>
+
+      <h2>Próximos partidos</h2>
+      <div id="demo-proximos"></div>
+    </div></section>
+
+<!-- ============ PÁGINA: JUGADORES (datos de demostración) ============ -->
+<section id="jugadores" class="pagina">
+    <div class="contenedor">
+      <p class="etiqueta">BZ / 003</p><h1>Jugadores</h1>
+      <div class="aviso"><span class="pill">Datos de demostración</span> Los jugadores y sus estadísticas son ficticios (temporada de la «Liga Demo»). No representan a personas reales.</div>
+
+      <h2>Plantilla destacada</h2>
+      <div class="cuadricula" id="demo-jugadores"></div>
+
+      <h2>Líderes de la temporada</h2>
+      <div class="cuadricula" id="demo-lideres"></div>
+
+      <h2>Comparador</h2>
+      <div class="comparador">
+        <label for="jug-a">Jugador A</label><select id="jug-a"></select>
+        <label for="jug-b">Jugador B</label><select id="jug-b"></select>
+      </div>
+      <div class="tabla-scroll" id="demo-comparacion"></div>
+    </div></section>
+
+<!-- ============ PÁGINA: APRENDE (las lecciones están en data.js) ============ -->
+<section class="pagina" id="aprende">
+<div class="contenedor">
+<!-- ENCABEZADO DE LA ACADEMIA -->
+<header class="academia-hero">
+<p class="etiqueta">BZ / 004 — BASKET ZONE ACADEMY</p>
+<h1>Aprende. Entrena. Domina el juego.</h1>
+<p class="academia-descripcion">
+        Descubre los fundamentos del baloncesto, mejora tus habilidades,
+        comprende las estrategias y aprende a pensar como un jugador.
+      </p>
+<div class="academia-progreso">
+<div class="academia-progreso-info">
+<span>MI PROGRESO DE APRENDIZAJE</span>
+<strong id="progreso-texto"></strong>
+</div>
+<div class="barra-progreso">
+<div id="progreso-barra"></div>
+</div>
+</div>
+</header>
+<!-- CATEGORÍAS DE APRENDIZAJE -->
+<!-- =====================================
+     BZ ACADEMY - CATEGORÍAS
+===================================== -->
+<div class="categorias-grid">
+<a class="categoria-card" href="#fundamentos">
+<span class="categoria-numero">01</span>
+<h3>Fundamentos</h3>
+<p>Reglas, posiciones, cancha y conceptos esenciales.</p>
+<span class="categoria-nivel">NIVEL INICIAL →</span>
+</a>
+<a class="categoria-card" href="#tecnicas">
+<span class="categoria-numero">02</span>
+<h3>Técnicas individuales</h3>
+<p>Bote, pases, lanzamiento, entradas y defensa.</p>
+<span class="categoria-nivel">EXPLORAR TÉCNICAS →</span>
+</a>
+<a class="categoria-card" href="#estrategias">
+<span class="categoria-numero">03</span>
+<h3>Estrategias y tácticas</h3>
+<p>Jugadas ofensivas, defensas y movimientos colectivos.</p>
+<span class="categoria-nivel">EXPLORAR TÁCTICAS →</span>
+</a>
+<a class="categoria-card" href="#preparacion">
+<span class="categoria-numero">04</span>
+<h3>Preparación física</h3>
+<p>Coordinación, velocidad, resistencia y movilidad.</p>
+<span class="categoria-nivel">VER ENTRENAMIENTOS →</span>
+</a>
+<a class="categoria-card" href="#historia">
+<span class="categoria-numero">05</span>
+<h3>Historia y cultura</h3>
+<p>Origen, evolución y grandes competiciones.</p>
+<span class="categoria-nivel">DESCUBRIR HISTORIA →</span>
+</a>
+<a class="categoria-card" href="#estadisticas">
+<span class="categoria-numero">06</span>
+<h3>Análisis estadístico</h3>
+<p>Estadísticas, rendimiento y análisis de partidos.</p>
+<span class="categoria-nivel">ANALIZAR EL JUEGO →</span>
+</a>
+<a class="categoria-card" href="#mentalidad">
+<span class="categoria-numero">07</span>
+<h3>Mentalidad y equipo</h3>
+<p>Comunicación, concentración y liderazgo.</p>
+<span class="categoria-nivel">DESARROLLAR HABILIDADES →</span>
+</a>
+</div>
+<!-- =====================================
+     BZ ACADEMY - FUNDAMENTOS
+===================================== -->
+
+<!-- =====================================
+     BZ ACADEMY - TÉCNICAS
+===================================== -->
+
+<!-- =====================================
+     BZ ACADEMY - ESTRATEGIAS
+===================================== -->
+
+<!-- =====================================
+     BZ ACADEMY - PREPARACIÓN FÍSICA
+===================================== -->
+
+<!-- =====================================
+     BZ ACADEMY - ESTADÍSTICAS
+===================================== -->
+
+<!-- =====================================
+     BZ ACADEMY - MENTALIDAD
+===================================== -->
+
+<!-- =====================================
+     BZ ACADEMY - TÉCNICAS
+===================================== -->
+
+<!-- =====================================
+     BZ ACADEMY - ESTRATEGIAS
+===================================== -->
+
+<!-- =====================================
+     BZ ACADEMY - PREPARACIÓN FÍSICA
+===================================== -->
+
+<!-- =====================================
+     BZ ACADEMY - ESTADÍSTICAS
+===================================== -->
+
+<!-- =====================================
+     BZ ACADEMY - MENTALIDAD
+===================================== -->
+
+<!-- =====================================
+     RESTANTES PÁGINAS DE LA ACADEMIA
+     SE DESARROLLARÁN POR ETAPAS
+===================================== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<!-- JUGADA TÁCTICA DESTACADA -->
+<section class="academia-destacada">
+<p class="etiqueta">02 / CONOCE EL JUEGO</p>
+<h2>El baloncesto también se piensa.</h2>
+<p>
+        Una buena jugada no depende solamente de la habilidad individual.
+        La posición, el movimiento y la coordinación entre compañeros
+        pueden cambiar el desarrollo de una acción.
+      </p>
+<figure class="diagrama">
+<svg aria-labelledby="diag-titulo diag-desc" role="img" viewbox="0 0 400 260">
+<title id="diag-titulo">Diagrama de pase y corte hacia el aro</title>
+<desc id="diag-desc">
+            Dos jugadores realizan una acción coordinada:
+            uno pasa el balón y el otro corta hacia la canasta.
+          </desc>
+<g fill="none" stroke="#929298" stroke-width="2">
+<rect height="240" width="380" x="10" y="10"></rect>
+<rect height="120" width="120" x="140" y="10"></rect>
+<path d="M60 10v70a140 140 0 0 0 280 0V10"></path>
+<circle cx="200" cy="38" r="9" stroke="#F47721"></circle>
+</g>
+<path class="ruta-corte" d="M110 215C110 150 170 100 192 52"></path>
+<path class="ruta-pase" d="M300 200L125 120"></path>
+<circle cx="110" cy="215" fill="#F47721" r="14"></circle>
+<text fill="#09090B" font-size="14" font-weight="700" text-anchor="middle" x="110" y="220">2</text>
+<circle cx="300" cy="200" fill="#F4F4F2" r="14"></circle>
+<text fill="#09090B" font-size="14" font-weight="700" text-anchor="middle" x="300" y="205">1</text>
+<circle class="balon-pase" fill="#F47721" r="7" stroke="#09090B" stroke-width="2"></circle>
+</svg>
+<figcaption class="gris">
+          Ejemplo de movimiento colectivo: el jugador 1 realiza el pase
+          mientras el jugador 2 corta hacia una posición cercana al aro.
+        </figcaption>
+</figure>
+<p class="academia-nota">
+        PRÓXIMAMENTE: gráficos tácticos animados, movimientos de jugadores
+        y explicaciones interactivas.
+      </p>
+</section>
+<div class="contenedor">
+<!-- LISTA DE LECCIONES GENERADA POR JAVASCRIPT -->
+<section class="academia-lecciones">
+<p class="etiqueta">03 / CONTINÚA APRENDIENDO</p>
+<h2>Tus lecciones</h2>
+<p class="gris">
+        Explora los contenidos disponibles y avanza a tu propio ritmo.
+      </p>
+<div id="lista-lecciones"></div>
+</section>
+<!-- RECOMENDACIÓN DE SEGURIDAD -->
+<p class="gris academia-seguridad">
+      Recuerda calentar antes de realizar actividad física, adaptar
+      los ejercicios a tu experiencia y detenerte si sientes dolor.
+    </p>
+</div>
+
+</section>
+<!-- ============ SUBPÁGINAS DE BZ ACADEMY (se abren desde las tarjetas de Aprende) ============ -->
+
+<section class="pagina" id="fundamentos">
+<div class="contenedor">
+<a class="volver-academia" href="#aprende">← VOLVER A LA ACADEMIA</a>
+<p class="etiqueta">BZ ACADEMY / 001</p>
+<h1>Fundamentos del baloncesto</h1>
+<p class="academia-descripcion">
+      Aprende las reglas y los conocimientos esenciales para comprender el juego.
+    </p>
+<div class="cuadricula">
+<article class="caja tema-card" role="button" tabindex="0" data-tema="fundamentos-reglamento" aria-haspopup="dialog" aria-label="Abrir explicación: Reglamento"><h3>Reglamento</h3><p>Duración, puntuación, faltas, violaciones y posesión.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="fundamentos-la-cancha" aria-haspopup="dialog" aria-label="Abrir explicación: La cancha"><h3>La cancha</h3><p>Líneas, zonas, dimensiones y áreas de juego.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="fundamentos-posiciones" aria-haspopup="dialog" aria-label="Abrir explicación: Posiciones"><h3>Posiciones</h3><p>Base, escolta, alero, ala-pívot y pívot.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="fundamentos-puntuacion" aria-haspopup="dialog" aria-label="Abrir explicación: Puntuación"><h3>Puntuación</h3><p>Tiros libres, tiros de dos puntos y triples.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="fundamentos-faltas-y-violaciones" aria-haspopup="dialog" aria-label="Abrir explicación: Faltas y violaciones"><h3>Faltas y violaciones</h3><p>Pasos, dobles y faltas personales.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="fundamentos-equipamiento" aria-haspopup="dialog" aria-label="Abrir explicación: Equipamiento"><h3>Equipamiento</h3><p>Balón, uniforme y elementos utilizados en el deporte.</p></article>
+</div>
+</div>
+</section>
+
+<section class="pagina" id="tecnicas">
+<div class="contenedor">
+<a class="volver-academia" href="#aprende">← VOLVER A LA ACADEMIA</a>
+<p class="etiqueta">BZ ACADEMY / 002</p>
+<h1>Técnicas individuales</h1>
+<p class="academia-descripcion">Conoce las habilidades necesarias para desenvolverte en la cancha.</p>
+<div class="cuadricula">
+<article class="caja tema-card" role="button" tabindex="0" data-tema="tecnicas-dribling" aria-haspopup="dialog" aria-label="Abrir explicación: Dribling"><h3>Dribling</h3><p>Control del balón mediante el bote.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="tecnicas-pases" aria-haspopup="dialog" aria-label="Abrir explicación: Pases"><h3>Pases</h3><p>Pase de pecho, picado y por encima de la cabeza.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="tecnicas-lanzamientos" aria-haspopup="dialog" aria-label="Abrir explicación: Lanzamientos"><h3>Lanzamientos</h3><p>Técnicas para realizar tiros hacia el aro.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="tecnicas-entradas" aria-haspopup="dialog" aria-label="Abrir explicación: Entradas"><h3>Entradas</h3><p>Movimientos para acercarse al aro y finalizar.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="tecnicas-defensa" aria-haspopup="dialog" aria-label="Abrir explicación: Defensa"><h3>Defensa</h3><p>Posición defensiva y desplazamientos laterales.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="tecnicas-rebotes" aria-haspopup="dialog" aria-label="Abrir explicación: Rebotes"><h3>Rebotes</h3><p>Fundamentos para recuperar el balón.</p></article>
+</div>
+</div>
+</section>
+
+<section class="pagina" id="estrategias">
+<div class="contenedor">
+<a class="volver-academia" href="#aprende">← VOLVER A LA ACADEMIA</a>
+<p class="etiqueta">BZ ACADEMY / 003</p>
+<h1>Estrategias y tácticas</h1>
+<p class="academia-descripcion">Comprende cómo se organiza un equipo para atacar y defender.</p>
+<div class="cuadricula">
+<article class="caja tema-card" role="button" tabindex="0" data-tema="estrategias-ataque-organizado" aria-haspopup="dialog" aria-label="Abrir explicación: Ataque organizado"><h3>Ataque organizado</h3><p>Distribución de jugadores y circulación del balón.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="estrategias-contraataque" aria-haspopup="dialog" aria-label="Abrir explicación: Contraataque"><h3>Contraataque</h3><p>Transición rápida después de recuperar el balón.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="estrategias-defensa-individual" aria-haspopup="dialog" aria-label="Abrir explicación: Defensa individual"><h3>Defensa individual</h3><p>Cada jugador se responsabiliza de un rival.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="estrategias-defensa-en-zona" aria-haspopup="dialog" aria-label="Abrir explicación: Defensa en zona"><h3>Defensa en zona</h3><p>Los jugadores protegen diferentes áreas de la cancha.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="estrategias-bloqueos" aria-haspopup="dialog" aria-label="Abrir explicación: Bloqueos"><h3>Bloqueos</h3><p>Movimientos para crear espacios para los compañeros.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="estrategias-trabajo-colectivo" aria-haspopup="dialog" aria-label="Abrir explicación: Trabajo colectivo"><h3>Trabajo colectivo</h3><p>Coordinación y comunicación durante las jugadas.</p></article>
+</div>
+</div>
+</section>
+
+<section class="pagina" id="preparacion">
+<div class="contenedor">
+<a class="volver-academia" href="#aprende">← VOLVER A LA ACADEMIA</a>
+<p class="etiqueta">BZ ACADEMY / 004</p>
+<h1>Preparación física</h1>
+<p class="academia-descripcion">Conoce las capacidades físicas que participan en el baloncesto.</p>
+<div class="cuadricula">
+<article class="caja tema-card" role="button" tabindex="0" data-tema="preparacion-coordinacion" aria-haspopup="dialog" aria-label="Abrir explicación: Coordinación"><h3>Coordinación</h3><p>Controlar los movimientos del cuerpo y el balón.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="preparacion-velocidad" aria-haspopup="dialog" aria-label="Abrir explicación: Velocidad"><h3>Velocidad</h3><p>Desplazarse y reaccionar con rapidez.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="preparacion-resistencia" aria-haspopup="dialog" aria-label="Abrir explicación: Resistencia"><h3>Resistencia</h3><p>Mantener el esfuerzo durante el partido.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="preparacion-movilidad" aria-haspopup="dialog" aria-label="Abrir explicación: Movilidad"><h3>Movilidad</h3><p>Realizar movimientos con control y amplitud.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="preparacion-equilibrio" aria-haspopup="dialog" aria-label="Abrir explicación: Equilibrio"><h3>Equilibrio</h3><p>Mantener la estabilidad durante los movimientos.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="preparacion-calentamiento" aria-haspopup="dialog" aria-label="Abrir explicación: Calentamiento"><h3>Calentamiento</h3><p>Preparar el cuerpo antes de la actividad física.</p></article>
+</div>
+</div>
+</section>
+
+<section class="pagina" id="estadisticas">
+<div class="contenedor">
+<a class="volver-academia" href="#aprende">← VOLVER A LA ACADEMIA</a>
+<p class="etiqueta">BZ ACADEMY / 006</p>
+<h1>Análisis estadístico</h1>
+<p class="academia-descripcion">Aprende a interpretar los números y comprender el rendimiento de los jugadores.</p>
+<div class="cuadricula">
+<article class="caja tema-card" role="button" tabindex="0" data-tema="estadisticas-puntos" aria-haspopup="dialog" aria-label="Abrir explicación: Puntos"><h3>Puntos</h3><p>Cantidad de puntos anotados.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="estadisticas-rebotes" aria-haspopup="dialog" aria-label="Abrir explicación: Rebotes"><h3>Rebotes</h3><p>Balones recuperados después de lanzamientos fallidos.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="estadisticas-asistencias" aria-haspopup="dialog" aria-label="Abrir explicación: Asistencias"><h3>Asistencias</h3><p>Pases que permiten a un compañero anotar.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="estadisticas-robos" aria-haspopup="dialog" aria-label="Abrir explicación: Robos"><h3>Robos</h3><p>Recuperaciones del balón al equipo contrario.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="estadisticas-tapones" aria-haspopup="dialog" aria-label="Abrir explicación: Tapones"><h3>Tapones</h3><p>Lanzamientos rivales bloqueados legalmente.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="estadisticas-porcentajes" aria-haspopup="dialog" aria-label="Abrir explicación: Porcentajes"><h3>Porcentajes</h3><p>Efectividad en tiros de campo y tiros libres.</p></article>
+</div>
+</div>
+</section>
+
+<section class="pagina" id="mentalidad">
+<div class="contenedor">
+<a class="volver-academia" href="#aprende">← VOLVER A LA ACADEMIA</a>
+<p class="etiqueta">BZ ACADEMY / 007</p>
+<h1>Mentalidad y equipo</h1>
+<p class="academia-descripcion">Descubre la importancia de la concentración y el trabajo en equipo.</p>
+<div class="cuadricula">
+<article class="caja tema-card" role="button" tabindex="0" data-tema="mentalidad-comunicacion" aria-haspopup="dialog" aria-label="Abrir explicación: Comunicación"><h3>Comunicación</h3><p>Compartir información con los compañeros durante el juego.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="mentalidad-concentracion" aria-haspopup="dialog" aria-label="Abrir explicación: Concentración"><h3>Concentración</h3><p>Mantener la atención en las acciones del partido.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="mentalidad-liderazgo" aria-haspopup="dialog" aria-label="Abrir explicación: Liderazgo"><h3>Liderazgo</h3><p>Apoyar y orientar al equipo.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="mentalidad-disciplina" aria-haspopup="dialog" aria-label="Abrir explicación: Disciplina"><h3>Disciplina</h3><p>Respetar las reglas y responsabilidades.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="mentalidad-decisiones" aria-haspopup="dialog" aria-label="Abrir explicación: Decisiones"><h3>Decisiones</h3><p>Elegir la mejor opción según cada situación.</p></article>
+<article class="caja tema-card" role="button" tabindex="0" data-tema="mentalidad-companerismo" aria-haspopup="dialog" aria-label="Abrir explicación: Compañerismo"><h3>Compañerismo</h3><p>Colaborar y confiar en los demás jugadores.</p></article>
+</div>
+</div>
+</section>
+
+<!-- ============ PÁGINA: RETOS (las preguntas están en data.js) ============ -->
+<section id="retos" class="pagina">
+    <div class="contenedor">
+      <p class="etiqueta">BZ / 005</p><h1>Retos</h1>
+      <div id="quiz"></div>
+      <!-- Insignias y mejores resultados (los rellena script.js; se ocultan mientras juegas) -->
+      <div id="retos-extra">
+        <h2>Insignias</h2>
+        <div id="retos-insignias"></div>
+        <h2>Tus mejores resultados</h2>
+        <div id="retos-mejores"></div>
+        <p class="gris">Es una clasificación personal. Una clasificación entre varias personas requiere un servidor.</p>
+      </div>
+    </div></section>
+
+<!-- ============ PÁGINA: HISTORIA Y GLOSARIO ============ -->
+<section id="historia" class="pagina">
+    <div class="contenedor">
+      <p class="etiqueta">BZ / 006</p><h1>Historia del baloncesto</h1>
+      <ul class="linea-tiempo">
+        <li><span class="anio">1891</span>James Naismith, profesor de educación física, inventa el baloncesto en Springfield, Massachusetts.</li>
+        <li><span class="anio">1932</span>Se funda la FIBA, la federación internacional de baloncesto.</li>
+        <li><span class="anio">1936</span>El baloncesto masculino debuta en los Juegos Olímpicos de Berlín.</li>
+        <li><span class="anio">1949</span>Nace la NBA tras la fusión de la BAA y la NBL.</li>
+        <li><span class="anio">1954</span>La NBA introduce el reloj de 24 segundos.</li>
+        <li><span class="anio">1976</span>El baloncesto femenino debuta en los Juegos Olímpicos de Montreal.</li>
+        <li><span class="anio">1979</span>La NBA adopta la línea de tres puntos.</li>
+        <li><span class="anio">1992</span>El Dream Team de Estados Unidos juega en los Juegos Olímpicos de Barcelona, los primeros con jugadores de la NBA.</li>
+        <li><span class="anio">1997</span>Comienza la primera temporada de la WNBA.</li>
+      </ul>
+      <h2>Glosario</h2>
+      <dl class="glosario">
+        <dt>Asistencia</dt><dd>Pase que permite a un compañero anotar de inmediato.</dd>
+        <dt>Rebote</dt><dd>Recuperar el balón tras un tiro fallado, en ataque o en defensa.</dd>
+        <dt>Robo</dt><dd>Quitar el balón al rival sin que haya falta.</dd>
+        <dt>Tapón</dt><dd>Desviar el lanzamiento de un rival.</dd>
+        <dt>Triple-doble</dt><dd>Lograr dos dígitos en tres categorías estadísticas en un mismo partido, como puntos, rebotes y asistencias.</dd>
+        <dt>Pantalla (bloqueo)</dt><dd>Colocarse junto a un defensor para dejar libre a un compañero.</dd>
+        <dt>Contraataque</dt><dd>Ataque rápido tras recuperar el balón, antes de que la defensa se organice.</dd>
+        <dt>Falta personal</dt><dd>Contacto ilegal con un rival. En FIBA, con cinco faltas el jugador sale del partido.</dd>
+        <dt>Doble</dt><dd>Violación al botar de nuevo tras haber detenido el bote.</dd>
+        <dt>Pasos</dt><dd>Violación al dar más pasos de los permitidos sin botar.</dd>
+      </dl>
+    </div></section>
+
+<!-- ============ PÁGINA: COMUNIDAD ============ -->
+<section id="comunidad" class="pagina">
+    <div class="contenedor">
+      <p class="etiqueta">BZ / 007</p><h1>Comunidad</h1>
+      <h2>Reta a un amigo</h2>
+      <p>Sin necesidad de cuentas:</p>
+      <!-- Ilustración del flujo (ejemplo): no representa usuarios reales -->
+      <div class="flujo" aria-label="Ejemplo ilustrativo de cómo retar a un amigo">
+        <div class="avatar" id="comunidad-avatar">TÚ</div>
+        <div class="invitacion">¡Supera mi puntuación en el reto!</div>
+        <div class="avatar amigo">AM</div>
+      </div>
+      <ol class="pasos">
+        <li>Haz el reto en <a class="enlace" href="#retos">Retos</a>.</li>
+        <li>Pulsa «Compartir resultado» al terminar.</li>
+        <li>Envía el texto a tu amigo: tendrá que superar tu puntuación.</li>
+      </ol>
+      <div class="caja sin-datos"><h3>Perfiles, amigos y duelos en directo</h3>
+      <p class="gris">Estas funciones requieren cuentas de usuario y una base de datos. No están activas en esta versión.</p></div>
+    </div></section>
+
+<!-- ============ PÁGINA: MI PERFIL ============ -->
+<section id="perfil" class="pagina">
+    <div class="contenedor">
+      <p class="etiqueta">BZ / 008</p><h1>Mi perfil</h1>
+      <!-- Avatar guardado (lo rellena script.js, función actualizarAvatares) -->
+      <div class="perfil-avatar" id="perfil-avatar-mini"></div>
+      <div class="cuadricula compacta">
+        <div class="caja"><p class="numero"><span id="perfil-lecciones">0</span><span id="perfil-total"></span></p><p>Lecciones completadas</p></div>
+        <div class="caja"><p class="numero" id="perfil-puntos">0</p><p>Mejor puntuación</p></div>
+        <div class="caja"><p class="numero" id="perfil-nivel">Novato</p><p>Tu nivel</p></div>
+        <div class="caja"><p class="numero" id="perfil-retos">0</p><p>Retos completados</p></div>
+        <div class="caja"><p class="numero" id="perfil-puntos-totales">0</p><p>Puntos totales</p></div>
+      </div>
+      <h2>Insignias</h2>
+      <div id="perfil-insignias"></div>
+      <h2>Últimos resultados</h2>
+      <div id="perfil-historial"></div>
+      <p class="gris">Estos datos se guardan solo en tu navegador, en este dispositivo.</p>
+      <h2>Tu nombre</h2>
+      <!-- Formulario con validación: la lógica está en script.js (función guardarNombre) -->
+      <form id="form-nombre" novalidate>
+        <label for="nombre-jugador">Nombre para tu perfil (2 a 20 letras)</label>
+        <input id="nombre-jugador" type="text" maxlength="20" autocomplete="nickname">
+        <p class="error" id="error-nombre" role="alert"></p>
+        <button class="boton" type="submit">Guardar nombre</button>
+      </form>
+      <h2>Tu avatar</h2>
+<p class="gris">Personaliza tu imagen para Basket Zone.</p>
+<div id="avatarCreator"></div>
+      <p class="gris" id="saludo"></p>
+      <button class="boton peligro" id="borrar">Borrar mis datos</button>
+    </div></section>
+
+<!-- ============ PÁGINA: PRIVACIDAD Y CONDICIONES ============ -->
+<section id="privacidad" class="pagina">
+    <div class="contenedor"><h1>Privacidad y condiciones</h1>
+      <h3>Qué datos usa esta web</h3>
+      <p>Basket Zone no tiene cuentas y no recopila datos personales. Tu progreso en las lecciones y tu mejor puntuación se guardan únicamente en el almacenamiento local de tu navegador. Puedes borrarlos desde Mi perfil.</p>
+      <h3>Servicios externos</h3>
+      <p>Las tipografías se cargan desde Google Fonts, por lo que tu navegador se conecta a los servidores de Google al abrir la web. Los enlaces a sitios oficiales se abren en una pestaña nueva y se rigen por sus propias políticas.</p>
+      <h3>Condiciones de uso</h3>
+      <p>El contenido es educativo e informativo. Basket Zone no está afiliada a la NBA, la WNBA, la FIBA ni a ninguna otra organización citada; sus nombres pertenecen a sus propietarios. Los consejos de entrenamiento son generales y no sustituyen la guía de un entrenador o profesional de la salud.</p>
+    </div></section>
+
+<!-- ============ PÁGINA: PÁGINA NO ENCONTRADA ============ -->
+<section id="error404" class="pagina">
+    <div class="contenedor"><h1>Página no encontrada</h1>
+    <p class="gris">La dirección que abriste no existe.</p>
+    <a class="boton" href="#inicio">Volver al inicio</a></div></section>
+
+<!-- Ficha didáctica reutilizable para los temas de BZ Academy -->
+<dialog class="tema-dialog" id="tema-dialog" aria-labelledby="tema-dialog-titulo">
+  <div class="tema-dialog-contenido">
+    <button class="tema-dialog-cerrar" id="tema-dialog-cerrar" type="button" aria-label="Cerrar explicación">×</button>
+    <p class="etiqueta">BZ ACADEMY / GUÍA INTERACTIVA</p>
+    <h2 id="tema-dialog-titulo">Tema</h2>
+    <p id="tema-dialog-intro" class="tema-dialog-intro"></p>
+    <div id="tema-dialog-grafico" class="tema-dialog-grafico"></div>
+    <div class="tema-dialog-clave" id="tema-dialog-clave"></div>
+    <div class="tema-dialog-videos">
+      <a class="boton tema-dialog-video" id="tema-dialog-video-es" href="#" target="_blank" rel="noopener noreferrer">Videos en español ↗</a>
+      <a class="boton tema-dialog-video tema-dialog-video-secundario" id="tema-dialog-video-en" href="#" target="_blank" rel="noopener noreferrer">Videos in English ↗</a>
+    </div>
+    <p class="tema-dialog-nota">Se abrirán búsquedas de videos en YouTube en el idioma elegido. Comprueba que el tutorial explique correctamente la técnica o las reglas FIBA.</p>
+  </div>
+</dialog>
+
+</main>
+
+<footer>
+  <div class="w">
+    <span>Basket Zone. Tu mundo, tu cancha.</span>
+    <a href="#inicio">Inicio</a>
+    <a href="#partidos">Partidos</a>
+    <a href="#jugadores">Jugadores</a>
+    <a href="#aprende">Aprende</a>
+    <a href="#historia">Historia</a>
+    <a href="#retos">Retos</a>
+    <a href="#comunidad">Comunidad</a>
+    <a href="#privacidad">Privacidad</a>
+  </div>
+</footer>
+
+<!-- FUNCIONAMIENTO: data.js = datos (lecciones, preguntas); script.js = lógica. El orden importa. -->
+<script src="data.js?v=5"></script>
+<script src="avatar.js?v=2"></script>
+<script src="script.js?v=8"></script>
+</body>
+</html>

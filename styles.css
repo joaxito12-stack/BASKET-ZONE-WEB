@@ -1,0 +1,909 @@
+/* ===== 1. COLORES (Identidad COURT CULTURE) ===== */
+:root {
+  --fondo: #09090B;      /* Negro cancha */
+  --panel: #18181C;      /* Grafito */
+  --naranja: #F47721;    /* Naranja arena (Acento principal) */
+  --blanco: #F4F4F2;     /* Blanco tiza */
+  --gris: #929298;       /* Gris acero */
+  --verde: #B7E36A;      /* Verde lima (Aciertos/Progreso) */
+  --rojo: #E5484D;       /* Rojo (Errores) */
+  --linea: #3a3a40;      /* Líneas divisorias sutiles */
+}
+
+/* ===== 2. BASE ===== */
+* { box-sizing: border-box; }
+body { 
+  margin: 0; 
+  background: var(--fondo); 
+  color: var(--blanco); 
+  font-family: "DM Sans", Arial, sans-serif; 
+  line-height: 1.6; 
+}
+h1, h2, h3 { 
+  font-family: "Big Shoulders Display", Impact, sans-serif; 
+  text-transform: uppercase; 
+  line-height: 1; 
+  margin: 0 0 16px; 
+}
+h1 { font-size: clamp(3rem, 12vw, 7rem); }
+h2 { font-size: 2.4rem; margin-top: 48px; }
+a { color: inherit; text-decoration: none; }
+.gris { color: var(--gris); }
+.contenedor, .w, .bar { max-width: 1100px; margin: auto; padding: 24px 20px; }
+
+/* ===== 3. CABECERA Y MENÚ ===== */
+header { 
+  background: var(--fondo); 
+  border-bottom: 1px solid var(--linea); 
+  position: sticky; 
+  top: 0; 
+  z-index: 50; 
+}
+.bar { 
+  display: flex; 
+  align-items: center; 
+  gap: 16px; 
+  padding-top: 10px; 
+  padding-bottom: 10px; 
+  flex-wrap: wrap; 
+}
+.logo { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  font: 900 1.7rem "Big Shoulders Display", Impact, sans-serif; 
+  letter-spacing: .04em; 
+}
+nav { display: flex; flex: 1; flex-wrap: wrap; }
+nav a { color: var(--gris); padding: 10px 12px; transition: color 0.2s; }
+nav a:hover { color: var(--blanco); }
+nav a[aria-current="page"] { 
+  color: var(--blanco); 
+  border-bottom: 3px solid var(--naranja); 
+}
+.mb { 
+  display: none; 
+  padding: 10px 16px; 
+  background: none; 
+  color: var(--blanco); 
+  border: 1px solid var(--linea); 
+  cursor: pointer; 
+  margin-left: auto; 
+  font-family: "DM Sans", sans-serif;
+}
+
+/* ===== 4. BOTONES ===== */
+.boton, .btn {
+  display: inline-block; 
+  padding: 12px 26px; 
+  margin: 8px 8px 8px 0;
+  background: var(--naranja); 
+  color: #09090B; 
+  border: 2px solid var(--naranja);
+  font: 800 1.1rem "Big Shoulders Display", Impact, sans-serif; 
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.boton:hover, .btn:hover { 
+  background: var(--blanco); 
+  border-color: var(--blanco); 
+}
+.vacio { 
+  background: transparent; 
+  color: var(--blanco); 
+  border-color: var(--blanco); 
+}
+.vacio:hover { 
+  color: #09090B; 
+  background: var(--blanco);
+}
+
+/* ===== 5. PORTADA Y TEXTOS ===== */
+.portada { 
+  padding: 70px 0; 
+  border-bottom: 1px solid var(--linea); 
+  background: radial-gradient(circle at 80% 0, rgba(244,119,33,0.35), transparent 55%); 
+}
+.etiqueta { 
+  color: var(--naranja); 
+  font-weight: 700; 
+  letter-spacing: .12em; 
+  font-size: 0.9rem;
+}
+.eslogan { 
+  font: 800 1.8rem "Big Shoulders Display", Impact, sans-serif; 
+  text-transform: uppercase; 
+  margin: 0 0 8px; 
+}
+
+/* ===== 6. CAJAS Y CUADRÍCULAS ===== */
+.cuadricula { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+  gap: 16px; 
+  margin: 16px 0; 
+}
+.caja { 
+  background: var(--panel); 
+  border: 1px solid var(--linea); 
+  padding: 20px; 
+}
+.caja.sin-datos { 
+  background: transparent; 
+  border: 2px dashed var(--gris); 
+  margin: 24px 0; 
+  text-align: center;
+}
+.numero { 
+  font: 900 3.2rem "Big Shoulders Display", Impact, sans-serif; 
+  color: var(--naranja); 
+  line-height: 1; 
+  margin: 0 0 8px; 
+}
+
+/* ===== 7. LECCIONES ===== */
+details { 
+  background: var(--panel); 
+  border: 1px solid var(--linea); 
+  padding: 8px 18px; 
+  margin: 10px 0; 
+}
+summary { 
+  cursor: pointer; 
+  font: 800 1.3rem "Big Shoulders Display", Impact, sans-serif; 
+  text-transform: uppercase; 
+  padding: 10px 0; 
+  list-style: none; /* Oculta el triángulo por defecto en algunos navegadores */
+}
+summary::-webkit-details-marker { display: none; }
+.nivel { 
+  font: 700 0.8rem "DM Sans", sans-serif; 
+  border: 1px solid var(--naranja); 
+  color: var(--naranja); 
+  padding: 2px 8px; 
+  margin-left: 8px; 
+  vertical-align: middle;
+}
+label { 
+  display: block; 
+  padding: 10px 0; 
+  cursor: pointer; 
+  font-weight: 700; 
+}
+input[type="checkbox"] { 
+  width: 20px; 
+  height: 20px; 
+  accent-color: var(--naranja); 
+  margin-right: 8px; 
+  cursor: pointer;
+}
+.barra-progreso { 
+  height: 10px; 
+  background: var(--linea); 
+  margin: 8px 0 20px; 
+  border-radius: 5px;
+  overflow: hidden;
+}
+.barra-progreso div { 
+  height: 100%; 
+  width: 0; 
+  background: var(--naranja); 
+  transition: width 0.4s ease-out; 
+}
+
+/* ===== 8. RETO DE PREGUNTAS ===== */
+.opcion { 
+  display: block; 
+  width: 100%; 
+  text-align: left; 
+  margin: 10px 0; 
+  padding: 14px 16px; 
+  background: var(--panel); 
+  color: var(--blanco); 
+  border: 2px solid var(--linea); 
+  font: 1rem "DM Sans", sans-serif; 
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.opcion:hover:not(:disabled) { 
+  border-color: var(--naranja); 
+}
+.opcion:disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+.opcion.correcta { 
+  border-color: var(--verde); 
+  background: rgba(183, 227, 106, 0.1);
+}
+.opcion.incorrecta { 
+  border-color: var(--rojo); 
+  background: rgba(229, 72, 77, 0.1);
+}
+
+/* ===== 9. PIE DE PÁGINA ===== */
+footer { 
+  border-top: 1px solid var(--linea); 
+  color: var(--gris); 
+  margin-top: 48px; 
+  font-size: 0.9rem;
+}
+footer .w { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 12px 24px; 
+  align-items: center;
+}
+footer a:hover { 
+  color: var(--naranja); 
+}
+
+/* ===== 10. MÓVIL (Responsive) ===== */
+
+
+/* ===== 11. CONTENIDO EXTRA (historia, glosario, enlaces) ===== */
+.caja h3 { font-size: 1.6rem; }
+.enlace { color: var(--naranja); text-decoration: underline; text-underline-offset: 3px; }
+.enlace:hover { color: var(--blanco); }
+.linea-tiempo { list-style: none; margin: 16px 0 32px; padding: 0 0 0 20px; border-left: 2px solid var(--naranja); }
+.linea-tiempo li { margin: 0 0 22px; position: relative; }
+.linea-tiempo li::before { content: ""; position: absolute; left: -27px; top: 8px; width: 12px; height: 12px; background: var(--naranja); }
+.anio { font: 900 1.8rem "Big Shoulders Display", Impact, sans-serif; color: var(--naranja); display: block; line-height: 1.1; }
+.glosario dt { font-weight: 700; color: var(--blanco); margin-top: 16px; }
+.glosario dd { margin: 4px 0 0; color: var(--gris); }
+.aviso { border-left: 4px solid var(--naranja); background: var(--panel); padding: 12px 16px; margin: 16px 0; }
+.boton.peligro { background: transparent; color: var(--rojo); border-color: var(--rojo); }
+.boton.peligro:hover { background: var(--rojo); color: #09090B; }
+:focus-visible { outline: 3px solid var(--naranja); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* ===== 12. AJUSTES PARA PANTALLAS PEQUEÑAS ===== */
+h1, h2, h3 { overflow-wrap: break-word; }
+
+
+
+/* ===== 13. TABLAS Y COMPARADOR (datos de demostración) ===== */
+.pill { display: inline-block; border: 1px solid var(--naranja); color: var(--naranja); padding: 2px 10px; font-size: .8rem; font-weight: 700; margin-right: 6px; }
+.tabla-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px 12px; text-align: center; border-bottom: 1px solid var(--linea); white-space: nowrap; }
+th[scope="row"], thead th:first-child { text-align: left; }
+thead th { color: var(--gris); font-weight: 700; font-size: .9rem; }
+tr.gana th, tr.gana td { color: var(--blanco); font-weight: 700; }
+tr:not(.gana) td, tr:not(.gana) th[scope="row"] { color: var(--gris); }
+.tabla-scroll table:not(.comparacion) tbody tr td, .tabla-scroll table:not(.comparacion) tbody th { color: var(--blanco); }
+.comparador { display: grid; grid-template-columns: auto 1fr; gap: 10px 14px; align-items: center; max-width: 520px; margin-bottom: 16px; }
+select { background: var(--panel); color: var(--blanco); border: 2px solid var(--linea); padding: 10px; font: 1rem "DM Sans", sans-serif; min-height: 44px; }
+.comparacion th, .comparacion td { text-align: center; }
+.comparacion td.mejor { color: var(--naranja); font-weight: 700; }
+
+
+/* ===== 14. PÁGINAS, IMAGEN DE PORTADA Y FORMULARIO ===== */
+/* Solo se ve la página que tiene la clase "activa" (la asigna script.js) */
+.pagina { display: none; }
+.pagina.activa { display: block; }
+
+/* Portada: texto a la izquierda e imagen a la derecha. Cambia el tamaño de la imagen con max-width. */
+.portada-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: center; }
+.imagen-portada { width: 100%; max-width: 420px; height: auto; justify-self: center; border: 1px solid var(--linea); }
+
+
+/* Formulario */
+form { max-width: 420px; }
+input[type="text"] { width: 100%; background: var(--panel); color: var(--blanco); border: 2px solid var(--linea); padding: 12px; font: 1rem "DM Sans", sans-serif; min-height: 44px; }
+input[type="text"][aria-invalid="true"] { border-color: var(--rojo); }
+.error { color: var(--rojo); min-height: 1.6em; margin: 6px 0; }
+
+/* ==========================================================
+   15. ANIMACIONES (estilo COURT CULTURE)
+   Todo lo animado está aquí. Para quitar una animación, borra su línea "animation".
+   Duraciones: cambia los segundos (por ejemplo .8s). Se desactivan solas si la
+   persona tiene activado "reducir movimiento" (ver el final de esta sección).
+   ========================================================== */
+
+/* --- 15.1 Definiciones de movimiento (keyframes) --- */
+@keyframes subir    { from { opacity: 0; transform: translateY(28px); } }
+@keyframes fundido  { from { opacity: 0; } }
+@keyframes bajar    { from { opacity: 0; transform: translateY(-8px); } }
+@keyframes dibujar  { to { stroke-dashoffset: 0; } }
+@keyframes girar    { to { transform: rotate(360deg); } }
+@keyframes flotar   { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+@keyframes acercar  { from { transform: scale(1.18); } to { transform: scale(1); } }
+@keyframes pulso    { 0% { box-shadow: 0 0 0 0 rgba(183,227,106,.6); } 100% { box-shadow: 0 0 0 10px rgba(183,227,106,0); } }
+@keyframes destello { 40% { color: var(--naranja); text-shadow: 0 0 14px rgba(244,119,33,.8); } }
+@keyframes pop      { 50% { transform: scale(1.03); } }
+@keyframes sacudir  { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+@keyframes fluir    { to { stroke-dashoffset: -12; } }
+@keyframes recorrer { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+
+/* --- 15.2 Pantalla de carga --- */
+.cargador { position: fixed; inset: 0; z-index: 100; background: var(--fondo); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; transition: opacity .5s, visibility .5s; }
+.cargador.oculto { opacity: 0; visibility: hidden; pointer-events: none; }
+.cargador svg { width: 160px; height: 160px; }
+.cancha-trazo { fill: none; stroke: var(--naranja); stroke-width: 2; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: .7; animation: dibujar 1.4s ease-in-out infinite alternate; }
+.bola { transform-box: fill-box; transform-origin: center; animation: girar 1.2s linear infinite; }
+.cargador-texto { font: 900 1.6rem "Big Shoulders Display", Impact, sans-serif; letter-spacing: .2em; margin: 0; }
+
+/* --- 15.3 Portada cinematográfica --- */
+.portada { position: relative; overflow: hidden; }
+.portada .contenedor { position: relative; z-index: 1; }
+/* La animación de la portada espera a que termine la pantalla de carga */
+body:not(.cargado) .portada, body:not(.cargado) .portada * { animation-play-state: paused !important; }
+.portada-grid > div:first-child > * { animation: subir .9s ease backwards; }
+.portada-grid > div:first-child > :nth-child(1) { animation-delay: .1s; }
+.portada-grid > div:first-child > :nth-child(2) { animation-delay: .25s; }
+.portada-grid > div:first-child > :nth-child(3) { animation-delay: .45s; }
+.portada-grid > div:first-child > :nth-child(4) { animation-delay: .6s; }
+.portada-grid > div:first-child > :nth-child(n+5) { animation-delay: .75s; }
+.lineas-fondo { position: absolute; right: -4%; top: 50%; width: min(900px, 95%); transform: translateY(-50%); opacity: .3; pointer-events: none; }
+.lineas-fondo * { fill: none; stroke: var(--naranja); stroke-width: 2; stroke-dasharray: 1; stroke-dashoffset: 1; animation: dibujar 3s ease-out .3s forwards; }
+.escena { position: relative; overflow: hidden; justify-self: center; width: 100%; max-width: 420px; border: 1px solid var(--linea); will-change: transform; }
+.imagen-portada { display: block; width: 100%; height: auto; border: 0; max-width: none; animation: acercar 9s ease-out backwards; transition: transform s ease; }
+.escena:hover .imagen-portada { transform: scale(1.05); }
+.pelota-flotante { position: absolute; left: 50%; top: 50%; width: 34%; margin: -17% 0 0 -17%; animation: flotar 4s ease-in-out infinite; }
+.pelota-giro { display: block; width: 100%; height: auto; animation: girar 14s linear infinite; filter: drop-shadow(0 12px 14px rgba(0,0,0,.5)); }
+
+/* --- 15.4 Aparición al desplazarse (la clase "revelar" la pone script.js) --- */
+.revelar { opacity: 0; }
+.revelar.visible { opacity: 1; animation: subir .7s ease backwards; animation-delay: var(--retraso, 0s); }
+.pagina.activa { animation: fundido .4s ease; }
+
+/* --- 15.5 Microinteracciones --- */
+.boton, .btn { transition: transform .2s, background .25s, color .25s, border-color .25s, box-shadow .25s; }
+.boton:hover, .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(244,119,33,.3); }
+.boton:active, .btn:active { transform: translateY(0) scale(.97); box-shadow: none; }
+.caja { transition: transform .25s, border-color .25s, box-shadow .25s; }
+.caja:hover { transform: translateY(-4px); border-color: var(--naranja); box-shadow: 0 10px 24px rgba(0,0,0,.4); }
+.caja.sin-datos:hover { transform: none; box-shadow: none; }
+/* Indicador animado del menú: una línea naranja que se desliza bajo el enlace */
+nav a { position: relative; }
+
+nav.open { animation: bajar .25s ease; }
+/* Lecciones desplegables */
+summary::after { content: "+"; float: right; color: var(--naranja); font-size: 1.6rem; line-height: 1; transition: transform .3s; }
+details[open] > summary::after { transform: rotate(45deg); }
+details[open] > summary ~ * { animation: bajar .35s ease; }
+
+/* --- 15.6 Partidos --- */
+.punto { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--gris); }
+.punto.live { background: var(--verde); animation: pulso 1.4s ease-out infinite; }
+.punto.proximo { background: var(--naranja); }
+.punto.fin { background: var(--blanco); }
+.estado { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; margin: 0 20px 8px 0; }
+.contador.destello { animation: destello .9s ease; }
+.barra-mini { width: 90px; height: 8px; background: var(--linea); }
+.barra-mini i { display: block; height: 100%; width: 0; background: var(--naranja); transition: width 1s ease .3s; }
+tr.visible .barra-mini i { width: var(--ancho); }
+
+/* --- 15.7 Jugadores: profundidad y estadísticas que se revelan --- */
+.tarjeta-jugador { cursor: default; }
+.tarjeta-jugador:hover, .tarjeta-jugador:focus { transform: translateY(-8px); border-color: var(--naranja); box-shadow: 0 16px 32px rgba(244,119,33,.18); }
+.detalle-extra { border-top: 1px solid var(--linea); margin-top: 10px; padding-top: 8px; }
+.detalle-extra p { margin: 0 0 4px; }
+/* Solo en dispositivos con ratón se oculta el detalle; en pantallas táctiles siempre se ve */
+@media (hover: hover) {
+  .tarjeta-jugador .detalle-extra { max-height: 0; opacity: 0; overflow: hidden; margin-top: 0; padding-top: 0; transition: max-height .35s ease, opacity .3s ease; }
+  .tarjeta-jugador:hover .detalle-extra, .tarjeta-jugador:focus .detalle-extra, .tarjeta-jugador:focus-within .detalle-extra { max-height: 90px; opacity: 1; margin-top: 10px; padding-top: 8px; }
+}
+
+/* --- 15.8 Aprendizaje: diagrama de cancha --- */
+.diagrama { margin: 16px 0 28px; max-width: 520px; }
+.diagrama svg { width: 100%; height: auto; background: var(--panel); border: 1px solid var(--linea); display: block; }
+.ruta-corte { fill: none; stroke: var(--naranja); stroke-width: 3; stroke-dasharray: 6 6; animation: fluir 1s linear infinite; }
+.ruta-pase { fill: none; stroke: var(--blanco); stroke-width: 2; stroke-opacity: .5; }
+.balon-pase { display: none; }
+@supports (offset-path: path("M0 0")) {
+  .balon-pase { display: block; offset-path: path("M300 200L125 120"); animation: recorrer 2.6s ease-in-out infinite; }
+}
+
+/* --- 15.9 Retos: tiempo, rondas y respuestas --- */
+.entrada { animation: subir .45s ease backwards; }
+.rondas { display: flex; gap: 6px; margin: 10px 0; }
+.rondas i { flex: 1; height: 6px; background: var(--linea); transition: background .4s; }
+.rondas i.actual { background: var(--gris); }
+.rondas i.hecha { background: var(--naranja); }
+.tiempo { height: 8px; background: var(--linea); margin: 12px 0 4px; overflow: hidden; }
+.tiempo i { display: block; height: 100%; width: 100%; background: var(--naranja); transition: width .1s linear; }
+.tiempo.urgente i { background: var(--rojo); }
+.opcion.correcta { animation: pop .45s ease; }
+.opcion.incorrecta { animation: sacudir .45s ease; }
+.nota { color: var(--naranja); font-weight: 700; animation: bajar .3s ease; }
+
+/* --- 15.10 Comunidad: invitación entre avatares (ejemplo ilustrativo) --- */
+.flujo { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 18px 0; }
+.avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--naranja); color: #09090B; display: flex; align-items: center; justify-content: center; font: 900 1.2rem "Big Shoulders Display", Impact, sans-serif; }
+.avatar.amigo { background: var(--blanco); }
+.invitacion { border: 1px solid var(--naranja); padding: 10px 16px; background: var(--panel); }
+.flujo.visible .invitacion { animation: subir .6s ease .4s backwards; }
+.flujo.visible .avatar.amigo { animation: subir .6s ease .8s backwards; }
+
+/* --- 15.11 Móvil: efectos más suaves --- */
+
+
+/* --- 15.12 Respeto por "reducir movimiento" (accesibilidad) --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .revelar, .revelar.visible { opacity: 1; }
+  .lineas-fondo * { stroke-dashoffset: 0; }
+  .barra-mini i { width: var(--ancho); }
+  .cargador { display: none; }
+}
+
+/* =========================================
+   BASKET ZONE ACADEMY
+   Nueva presentación de Aprende y entrena
+========================================= */
+
+.academia-hero {
+  padding: 35px 0 45px;
+  border-bottom: 1px solid #303034;
+}
+
+.academia-hero h1 {
+  max-width: 850px;
+  margin: 20px 0;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  line-height: .98;
+  letter-spacing: -2px;
+}
+
+.academia-descripcion {
+  max-width: 650px;
+  color: #929298;
+  line-height: 1.8;
+}
+
+.academia-progreso {
+  margin-top: 35px;
+  max-width: 650px;
+}
+
+.academia-progreso-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 12px;
+  font-size: .8rem;
+}
+
+.academia-progreso-info span {
+  color: #929298;
+}
+
+.academia-categorias,
+.academia-destacada,
+.academia-lecciones {
+  margin-top: 65px;
+}
+
+.academia-categorias h2,
+.academia-destacada h2,
+.academia-lecciones h2 {
+  font-size: clamp(1.7rem, 4vw, 2.7rem);
+  margin: 12px 0;
+}
+
+.categorias-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.categoria-card {
+  position: relative;
+  min-height: 190px;
+  padding: 25px;
+  background: #18181C;
+  border: 1px solid #303034;
+  transition: transform .25s ease,
+              border-color .25s ease,
+              background .25s ease;
+}
+
+.categoria-card:hover {
+  transform: translateY(-5px);
+  border-color: #F47721;
+  background: #202024;
+}
+
+.categoria-numero {
+  color: #F47721;
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.categoria-card h3 {
+  margin: 22px 0 10px;
+  font-size: 1.25rem;
+}
+
+.categoria-card p {
+  color: #929298;
+  line-height: 1.7;
+  font-size: .9rem;
+}
+
+.categoria-nivel {
+  display: inline-block;
+  margin-top: 12px;
+  color: #F47721;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.academia-destacada {
+  padding: 30px;
+  background: #18181C;
+  border: 1px solid #303034;
+}
+
+.academia-destacada > p:not(.etiqueta) {
+  color: #929298;
+  max-width: 750px;
+  line-height: 1.8;
+}
+
+.academia-nota {
+  margin-top: 20px;
+  color: #F47721 !important;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.academia-seguridad {
+  margin-top: 45px;
+  padding: 20px 0;
+  border-top: 1px solid #303034;
+  font-size: .85rem;
+  line-height: 1.7;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 650px) {
+  /* #aprende y !important: la corrección de la academia (más abajo) fuerza dos columnas */
+  #aprende .categorias-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #aprende .categoria-card {
+    min-height: auto !important;
+  }
+
+  .academia-destacada {
+    padding: 18px;
+  }
+
+  .academia-progreso-info {
+    flex-direction: column;
+  }
+}
+
+/* Accesibilidad: reducir animaciones */
+@media (prefers-reduced-motion: reduce) {
+  .categoria-card {
+    transition: none;
+  }
+
+  .categoria-card:hover {
+    transform: none;
+  }
+}
+.categorias-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+}
+
+.categoria-card {
+    background: #18181C !important;
+    border: 2px solid #F47721 !important;
+    padding: 25px !important;
+    min-height: 180px !important;
+}
+
+/* CORRECCIÓN: encabezado de la academia */
+#aprende .academia-hero {
+    position: static !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    z-index: auto !important;
+    transform: none !important;
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible;
+}
+
+/* Evitar que los títulos hereden posiciones fijas */
+#aprende .academia-hero h1 {
+    position: static !important;
+    transform: none !important;
+}
+
+/* Mantener las secciones en su flujo normal */
+#aprende .academia-categorias,
+#aprende .academia-destacada,
+#aprende .academia-lecciones {
+    position: relative;
+    z-index: 1;
+}
+
+/* Tarjetas navegables de BZ Academy */
+
+a.categoria-card {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.categoria-card:focus-visible {
+    outline: 2px solid #F47721;
+    outline-offset: 4px;
+}
+
+a.categoria-card .categoria-nivel {
+    transition: letter-spacing .2s ease;
+}
+
+a.categoria-card:hover .categoria-nivel {
+    letter-spacing: 2px;
+}
+.volver-academia {
+    display: inline-block;
+    margin-bottom: 30px;
+    color: #F47721;
+    text-decoration: none;
+    font-size: .8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.volver-academia:hover {
+    text-decoration: underline;
+}
+
+/* ===== BZ ACADEMY: TARJETAS INTERACTIVAS Y FICHAS DIDÁCTICAS ===== */
+.tema-card {
+  cursor: pointer;
+  position: relative;
+  min-height: 145px;
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+.tema-card::after {
+  content: "EXPLORAR ↗";
+  display: block;
+  margin-top: 16px;
+  color: var(--naranja);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+.tema-card:hover, .tema-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--naranja);
+  box-shadow: 0 12px 28px rgba(244,119,33,.12);
+  outline: none;
+}
+.tema-card:focus-visible { outline: 2px solid var(--naranja); outline-offset: 3px; }
+.tema-dialog {
+  width: min(680px, calc(100% - 28px));
+  max-width: 680px;
+  max-height: min(86vh, 850px);
+  padding: 0;
+  border: 1px solid var(--linea);
+  border-radius: 4px;
+  background: var(--panel);
+  color: var(--blanco);
+  box-shadow: 0 24px 80px rgba(0,0,0,.65);
+}
+.tema-dialog::backdrop { background: rgba(0,0,0,.82); backdrop-filter: blur(5px); }
+.tema-dialog-contenido { position: relative; padding: clamp(22px, 5vw, 38px); overflow-y: auto; }
+.tema-dialog-cerrar {
+  position: absolute; top: 14px; right: 16px; width: 40px; height: 40px;
+  border: 1px solid var(--linea); background: transparent; color: var(--blanco);
+  font-size: 1.8rem; cursor: pointer;
+}
+.tema-dialog h2 { margin: 12px 48px 14px 0; color: var(--naranja); font-size: clamp(2rem, 6vw, 3rem); }
+.tema-dialog-intro { color: var(--blanco); font-size: 1rem; line-height: 1.75; }
+.tema-dialog-grafico { margin: 22px 0; }
+.grafico-cancha { display: block; width: 100%; height: auto; border: 1px solid var(--linea); border-radius: 3px; }
+.tema-grafico-pie { color: var(--gris); font-size: .8rem; margin: 8px 0 0; }
+.tema-dialog-clave { margin: 20px 0; padding: 16px 18px; border-left: 3px solid var(--naranja); background: rgba(244,119,33,.08); }
+.tema-dialog-clave strong { color: var(--naranja); font-size: .72rem; letter-spacing: .12em; }
+.tema-dialog-clave p { margin: 6px 0 0; }
+.tema-dialog-video { display: inline-flex; align-items: center; justify-content: center; margin-top: 6px; }
+.tema-dialog-nota { margin: 12px 0 0; color: var(--gris); font-size: .78rem; }
+@media (max-width: 560px) {
+  .tema-dialog-contenido { padding: 22px 18px; }
+  .tema-dialog-video { width: 100%; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) { .tema-card { transition: none; } }
+
+
+/* ===== BZ ACADEMY: DIAGRAMAS DIDÁCTICOS Y VIDEOS BILINGÜES ===== */
+.bz-diagrama-tactico,
+.bz-cancha-fiba {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  border: 1px solid var(--linea);
+  border-radius: 5px;
+  background: #A96F43;
+}
+.bz-diagrama-tactico .svg-ruta {
+  fill: none;
+  stroke: #F47721;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-dasharray: 7 5;
+}
+.bz-diagrama-tactico .svg-ruta-clara {
+  fill: none;
+  stroke: #F4F4F2;
+  stroke-width: 3;
+  stroke-dasharray: 5 5;
+}
+.bz-diagrama-tactico .svg-jugador text { pointer-events: none; }
+.tema-dialog-videos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.tema-dialog-videos .tema-dialog-video {
+  flex: 1 1 220px;
+  text-align: center;
+}
+.tema-dialog-videos .tema-dialog-video-secundario {
+  background: transparent;
+  border: 1px solid var(--naranja);
+  color: var(--blanco);
+}
+@media (max-width: 560px) {
+  .tema-dialog-videos { flex-direction: column; }
+  .tema-dialog-videos .tema-dialog-video { width: 100%; }
+}
+
+
+/* ===== BZ ACADEMY: DIAGRAMAS DIDÁCTICOS Y VIDEOS BILINGÜES ===== */
+.bz-diagrama-tactico,
+.bz-cancha-fiba { display:block; width:100%; height:auto; overflow:visible; border:1px solid var(--linea); border-radius:5px; background:#A96F43; }
+.bz-diagrama-tactico .svg-ruta { fill:none; stroke:#F47721; stroke-width:3.5; stroke-linecap:round; stroke-dasharray:7 5; }
+.bz-diagrama-tactico .svg-ruta-clara { fill:none; stroke:#F4F4F2; stroke-width:3; stroke-dasharray:5 5; }
+.bz-diagrama-tactico .svg-jugador text { pointer-events:none; }
+.tema-dialog-videos { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+.tema-dialog-videos .tema-dialog-video { flex:1 1 220px; text-align:center; }
+.tema-dialog-videos .tema-dialog-video-secundario { background:transparent; border:1px solid var(--naranja); color:var(--blanco); }
+@media (max-width:560px) { .tema-dialog-videos { flex-direction:column; } .tema-dialog-videos .tema-dialog-video { width:100%; } }
+
+
+/* Imágenes externas de los diagramas de Aprende */
+.tema-imagen {
+  display: block;
+  width: 100%;
+  max-width: 750px;
+  max-height: 440px;
+  height: auto;
+  margin: 18px auto;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #fff;
+}
+
+/* ==========================================================
+   17. RETOS: modos, filtros, insignias y resultados
+   ========================================================== */
+.modos { border: 0; padding: 0; margin: 0 0 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.modos legend { font-weight: 700; margin-bottom: 8px; padding: 0; }
+.opcion-modo { display: flex; align-items: flex-start; gap: 10px; padding: 14px; background: var(--panel); border: 2px solid var(--linea); cursor: pointer; transition: border-color .2s, background .2s; }
+.opcion-modo:hover { border-color: var(--naranja); }
+.opcion-modo:has(input:checked) { border-color: var(--naranja); background: rgba(244,119,33,.12); }
+.opcion-modo input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--naranja); flex: none; }
+.opcion-modo strong, .opcion-modo small { display: block; }
+.opcion-modo small { color: var(--gris); font-weight: 400; }
+.filtros { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 560px; margin-bottom: 8px; }
+.filtros select { width: 100%; }
+.insignias { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.insignia { display: flex; align-items: center; gap: 14px; padding: 14px; background: var(--panel); border: 1px solid var(--linea); }
+.insignia strong, .insignia small { display: block; }
+.insignia small { color: var(--gris); }
+.hex { flex: none; display: flex; align-items: center; justify-content: center; width: 60px; height: 68px; background: var(--naranja); color: #09090B; font: 900 1.2rem "Big Shoulders Display", Impact, sans-serif; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+.insignia.bloqueada { opacity: .65; }
+.insignia.bloqueada .hex { background: var(--linea); color: var(--gris); }
+#retos-extra[hidden] { display: none; }
+
+/* ==========================================================
+   18. RESPONSIVE (adaptación a distintos tamaños de pantalla)
+   Todos los cambios por tamaño están aquí, de mayor a menor:
+     · Pantalla ancha ......... desde 1280 px
+     · Escritorio ............. desde 801 px
+     · Tablet pequeña ......... hasta 1100 px (el menú se compacta)
+     · Móvil .................. hasta 800 px (menú desplegable, una columna)
+     · Móvil pequeño .......... hasta 480 px (botones a lo ancho, estadísticas en 2 columnas)
+   Para cambiar cuándo se adapta algo, cambia el número en px de su @media.
+   ========================================================== */
+body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-area-inset-right, 0px); }
+
+/* --- Pantalla ancha --- */
+@media (min-width: 1280px) {
+  .contenedor, .w, .bar, .pg { max-width: 1240px; }
+}
+
+/* --- Escritorio: indicador del menú, etc. --- */
+@media (min-width: 801px) {
+  nav a[aria-current="page"] { border-bottom: 0; }
+  nav a::after { content: ""; position: absolute; left: 12px; right: 12px; bottom: 2px; height: 3px; background: var(--naranja); transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
+  nav a:hover::after, nav a[aria-current="page"]::after { transform: scaleX(1); }
+}
+
+/* --- Menú del escritorio: siempre en una sola fila (se compacta al achicar la ventana) --- */
+@media (min-width: 801px) {
+  .bar, nav { flex-wrap: nowrap; }
+  nav a { white-space: nowrap; }
+  .bar > .btn { margin: 0; }
+}
+@media (min-width: 801px) and (max-width: 1279px) {
+  .bar > .btn { display: none; }   /* "Descubrir retos" ya está en el menú */
+  .logo { font-size: 1.5rem; }
+  nav a { padding: 10px 9px; font-size: .92rem; }
+  nav a::after { left: 9px; right: 9px; }
+}
+@media (min-width: 801px) and (max-width: 950px) {
+  .bar { gap: 8px; }
+  .logo { font-size: 1.25rem; }
+  .logo img { width: 30px; height: 30px; }
+  nav a { padding: 10px 6px; font-size: .85rem; }
+  nav a::after { left: 6px; right: 6px; }
+}
+
+/* --- Móvil --- */
+@media (max-width: 800px) {
+  .mb { display: block; }
+  nav { 
+    display: none; 
+    flex-basis: 100%; 
+    flex-direction: column; 
+    border-top: 1px solid var(--linea);
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+  nav.open { display: flex; }
+  nav a { padding: 12px; border-bottom: 1px solid var(--linea); }
+  nav a[aria-current="page"] { border-bottom: 3px solid var(--naranja); }
+  .bar > .btn { display: none; }
+ .portada-grid { grid-template-columns: 1fr; } 
+  .pelota-flotante { width: 30%; margin: -15% 0 0 -15%; }
+  .caja:hover { transform: none; }
+  .lineas-fondo { opacity: .2; }
+  .mb { min-height: 44px; }
+  .cuadricula.compacta { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .cuadricula.compacta .caja { padding: 14px; }
+  .cuadricula.compacta .numero { font-size: 2.2rem; overflow-wrap: anywhere; }
+  .modos { grid-template-columns: 1fr; }
+  .sb { padding: 14px; }
+}
+
+/* --- Móvil pequeño --- */
+@media (max-width: 480px) {
+  h1 { font-size: 2.6rem; }
+  h2 { font-size: 2rem; }
+  .contenedor { padding-left: 16px; padding-right: 16px; }
+  .bar { padding-left: 12px; padding-right: 12px; }
+  .logo { font-size: 1.3rem; gap: 8px; }
+  .logo img { width: 32px; height: 32px; }
+  .boton { display: block; width: 100%; margin: 10px 0; text-align: center; }
+  .filtros { grid-template-columns: 1fr; }
+  .insignias { grid-template-columns: 1fr; }
+  .portada { padding: 44px 0; }
+  .comparador { grid-template-columns: 1fr; }
+  th, td { padding: 8px 8px; }
+}
