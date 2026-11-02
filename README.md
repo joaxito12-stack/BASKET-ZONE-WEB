@@ -15,14 +15,6 @@ Web de baloncesto en HTML, CSS y JavaScript puro (sin instalación): BZ Academy 
 
 Mantén los archivos en la misma carpeta y con estos nombres exactos, en minúsculas.
 
-## Cómo editar
-- Textos de una página: su `<section>` en `index.html`.
-- Nueva lección: copia un bloque de `LECCIONES` con un `id` nuevo.
-- Nueva pregunta: copia un bloque de `PREGUNTAS`.
-- Colores: bloque `:root` en `styles.css`.
-- Textos y vídeos de las fichas de la Academia: objeto `CONTENIDO_TEMAS` en `script.js`. Imágenes de los temas: `assets/img/`.
-- Tras publicar cambios, sube el número de `?v=6` en `index.html` si el navegador sigue mostrando la versión vieja.
-
 ## Ver en tu ordenador
 Abre la carpeta en Visual Studio Code y usa la extensión Live Server (ver `GUIA-EDICION.md`), o abre `index.html` con doble clic.
 
