@@ -19,7 +19,7 @@ Mantén los archivos en la misma carpeta y con estos nombres exactos, en minúsc
 Abre la carpeta en Visual Studio Code y usa la extensión Live Server (ver `GUIA-EDICION.md`), o abre `index.html` con doble clic.
 
 ## Animaciones
-Pantalla de carga, portada animada, aparición al hacer scroll, contadores, temporizador del reto y microinteracciones. Se desactivan con "reducir movimiento". Detalles en `GUIA-EDICION.md`.
+Pantalla de carga, portada animada, aparición al hacer scroll, contadores, temporizador del reto y microinteracciones. Se desactivan con "reducir movimiento".
 
 ## Limitaciones
 - No hay datos deportivos en vivo: haría falta una API.
