@@ -26,11 +26,6 @@ Mantén los archivos en la misma carpeta y con estos nombres exactos, en minúsc
 ## Ver en tu ordenador
 Abre la carpeta en Visual Studio Code y usa la extensión Live Server (ver `GUIA-EDICION.md`), o abre `index.html` con doble clic.
 
-## Publicar en GitHub Pages
-1. Sube estos archivos a la raíz de un repositorio público.
-2. En el repositorio: Settings, Pages, Source: Deploy from a branch, rama `main`, carpeta `/ (root)`, Save.
-3. En 1 o 2 minutos la web estará en `https://TU-USUARIO.github.io/NOMBRE-DEL-REPO/`.
-
 ## Animaciones
 Pantalla de carga, portada animada, aparición al hacer scroll, contadores, temporizador del reto y microinteracciones. Se desactivan con "reducir movimiento". Detalles en `GUIA-EDICION.md`.
 
